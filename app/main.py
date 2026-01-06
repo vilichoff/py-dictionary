@@ -81,7 +81,7 @@ class Point:
         self.x = x
         self.y = y
 
-    def __hash__(self)-> int:
+    def __hash__(self) -> int:
         coordinates = (self.x, self.y)
         return hash(coordinates)
 
