@@ -74,16 +74,15 @@ class Dictionary:
         return self.length
 
 class Point:
-    def __init__(self, x: int, y: int):
+    def __init__(self, x: int, y: int) -> None:
         self.x = x
         self.y = y
 
-    def __hash__(self):
+    def __hash__(self)-> int:
         coordinates = (self.x, self.y)
         return hash(coordinates)
 
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         if not isinstance(other, Point):
             return False
         return self.x == other.x and self.y == other.y
-
