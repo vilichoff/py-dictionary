@@ -17,6 +17,8 @@ class Node:
 
 class Dictionary:
     def __init__(self, capacity: int = 8) -> None:
+        if capacity <= 0:
+            raise ValueError
         self.capacity = capacity
         self.length = 0
         self.slots: list[Optional[Node]] = [None] * capacity
@@ -73,6 +75,7 @@ class Dictionary:
     def __len__(self) -> int:
         return self.length
 
+
 class Point:
     def __init__(self, x: int, y: int) -> None:
         self.x = x
@@ -82,7 +85,7 @@ class Point:
         coordinates = (self.x, self.y)
         return hash(coordinates)
 
-    def __eq__(self, other) -> bool:
+    def __eq__(self, other: Any) -> bool:
         if not isinstance(other, Point):
             return False
         return self.x == other.x and self.y == other.y
